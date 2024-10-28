@@ -13,7 +13,7 @@
 
 .input-field {
   width: 80%;
-  margin: 10px 0;
+  margin: 100px 10px;
   padding: 10px;
   border: none;
   border-radius: 10px;
@@ -23,13 +23,14 @@
 .links {
   display: flex;
   justify-content: space-between;
-  margin-left:20px;
-  margin-right:20px;
+  margin-right:60px;
+  
 }
 
 .links a {
   color: white;
   text-decoration: none;
+  margin-left:60px;
   font-size: 14px;
   transition: color 0.3s;
 }
