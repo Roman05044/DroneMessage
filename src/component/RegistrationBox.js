@@ -1,7 +1,7 @@
 import React from 'react';
 import './RegistrationBox.css';
 
-const RegistrationBox = ({ setIsRegistering }) => {
+const RegistrationBox = ({ setView }) => {
   return (
     <div className="registration-box">
       <h2>DroneMessage</h2>
@@ -11,7 +11,7 @@ const RegistrationBox = ({ setIsRegistering }) => {
       <input type="password" placeholder="Повторіть пароль" className="input-field" />
       <button className="register-button">Створити</button>
       <div className="links">
-        <a href="#" onClick={() => setIsRegistering(false)}>Вже є обліковий запис?</a>
+        <a href="#" onClick={() => setView('login')}>Вже є обліковий запис?</a>
       </div>
     </div>
   );

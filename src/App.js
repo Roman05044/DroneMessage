@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import LoginBox from './component/LoginBox';
 import RegistrationBox from './component/RegistrationBox';
+import PasswordRecoveryBox from './component/PasswordRecoveryBox';
 import DroneImage from './component/DroneImage';
 import background from './img/back.png';
 
 const App = () => {
-  const [isRegistering, setIsRegistering] = useState(false);
+  const [view, setView] = useState('login'); 
 
   const containerStyle = {
     backgroundImage: `url(${background})`,
@@ -20,11 +21,9 @@ const App = () => {
 
   return (
     <div style={containerStyle}>
-      {isRegistering ? (
-        <RegistrationBox setIsRegistering={setIsRegistering} />
-      ) : (
-        <LoginBox setIsRegistering={setIsRegistering} />
-      )}
+      {view === 'login' && <LoginBox setView={setView} />}
+      {view === 'register' && <RegistrationBox setView={setView} />}
+      {view === 'recovery' && <PasswordRecoveryBox setView={setView} />}
       <DroneImage />
     </div>
   );
