@@ -11,7 +11,7 @@ const LoginBox = ({ setView }) => {
         <a href="#" onClick={() => setView('register')}>Реєстрація</a>
         <a href="#" onClick={() => setView('recovery')}>Забули пароль?</a>
       </div>
-      <button className="login-button">Увійти</button>
+      <button className="login-button" onClick={() => setView('dashboard')}>Увійти</button>
     </div>
   );
 };

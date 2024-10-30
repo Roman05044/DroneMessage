@@ -1,0 +1,175 @@
+.dashboard-container {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    padding: 20px;
+    color: #fff;
+  }
+  
+  .left-section {
+    width: 70%;
+    background-color: #444;
+    padding: 200px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .image-button-posht {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #9f9a9a;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    width: 300px;
+    height: 150px;
+    transition: transform 0.3s;
+  }
+
+  .image-button-food {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    background-color: #9f9a9a;
+    border: none;
+    border-radius: 10px;
+    padding:15px;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    width: 300px;
+    height: 150px;
+    transition: transform 0.3s;
+  }
+
+  .image-container {
+    display: flex; 
+    justify-content: center; 
+    gap: 25px; 
+}
+
+  .image-button-posht img {
+    width: 60%;
+    height: 60%;
+    margin-bottom: 5px;
+    border-radius: 3px;
+  }
+  
+  .image-button-food img {
+    border-radius: 8px;
+    width: 60%;
+    height: 60%;
+    margin-bottom: 5px;
+  }
+
+  .button-text {
+    font-size: 20px; 
+    margin-bottom: 10px; 
+    margin-top: 0;  
+}
+  
+  .image-button span {
+    font-size: 16px;
+  }
+
+  .image-button-food:hover {
+    transform: scale(1.1);
+  }
+  
+  .image-button-posht:hover {
+    transform: scale(1.1);
+  }
+  
+  .ad-banner {
+    position: absolute;
+    height: 60px;
+    top: 300px;
+    text-align: center;
+    font-style: italic;
+    margin-top: 0px;
+    color: #ffffff;
+    padding:30px;
+    padding-bottom: 30px;
+  }
+  
+  .side-widget {
+    position: fixed;
+    top: 0;
+    right: -290px;
+    width: 250px;
+    height: 100vh;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px 0 0 10px;
+    color: white;
+    transition: right 0.3s ease;
+    z-index: 5;
+  }
+  
+  .side-widget.open {
+    right: 0;
+  }
+  
+  .profile-section {
+    text-align: center;
+    padding-top: 50px;
+  }
+  
+  .profile-pic {
+    width: 100px;
+    height: 100px;
+    background-color: #666;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .profile-pic:hover {
+    background-color: #777;
+  }
+  
+  .history-message {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #bbb;
+    text-align: center;
+  }
+  
+  .option {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #ccc;
+    text-align: left;
+    padding-left: 10px;
+  }
+  
+  .toggle-widget-button {
+    position: absolute;
+    top: 20px;
+    left: -29px;
+    background: #333;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 10;
+    transition: transform 0.3s;
+  }
+  
+  .toggle-widget-button:hover {
+    background: #444;
+  }
+  
