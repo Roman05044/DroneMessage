@@ -3,6 +3,7 @@ import LoginBox from './component/LoginBox';
 import RegistrationBox from './component/RegistrationBox';
 import PasswordRecoveryBox from './component/PasswordRecoveryBox';
 import Dashboard from './component/Dashboard';
+import FoodDelivery from './component/FoodDelivery';
 import background from './img/back.png';
 
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
       {view === 'register' && <RegistrationBox setView={setView} />}
       {view === 'recovery' && <PasswordRecoveryBox setView={setView} />}
       {view === 'dashboard' && <Dashboard setView={setView} />}
+      {view === 'foodDelivery' && <FoodDelivery setView={setView} />}
     </div>
   );
 };
