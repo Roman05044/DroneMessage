@@ -25,12 +25,15 @@ const Dashboard = ({ setView }) => {
   return (
     <div className="dashboard-container">
         <div className="button-container">
-          <button className="image-button-posht">
-          <span className="button-text">Пошта</span>
-          <div className="image-container">
-            <img src={ukrPoshtaLogo} alt="Укрпошта" />
-            <img src={novaPoshtaLogo} alt="Нова Пошта" />
-          </div>
+          <button 
+            className="image-button-posht" 
+            onClick={() => setView('parcelMap')}
+          >
+            <span className="button-text">Пошта</span>
+            <div className="image-container">
+              <img src={ukrPoshtaLogo} alt="Укрпошта" />
+              <img src={novaPoshtaLogo} alt="Нова Пошта" />
+            </div>
           </button>
 
           <button 

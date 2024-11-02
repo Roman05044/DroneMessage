@@ -78,7 +78,7 @@ const FoodDelivery = ({ setView }) => {
 
       <div className="recommendations">
         <img src={ukrBurgersBanner} alt="Сезон українських бургерів" className="banner" />
-        <h2>Рекомендації</h2>
+        <h2>Можливо ви хочете:</h2>
         <div className="recommendations-list">
           {filteredItems.map(item => (
             <img

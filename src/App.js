@@ -4,6 +4,7 @@ import RegistrationBox from './component/RegistrationBox';
 import PasswordRecoveryBox from './component/PasswordRecoveryBox';
 import Dashboard from './component/Dashboard';
 import FoodDelivery from './component/FoodDelivery';
+import ParcelMap from './component/ParcelMap';
 import background from './img/back.png';
 
 const App = () => {
@@ -27,6 +28,7 @@ const App = () => {
       {view === 'recovery' && <PasswordRecoveryBox setView={setView} />}
       {view === 'dashboard' && <Dashboard setView={setView} />}
       {view === 'foodDelivery' && <FoodDelivery setView={setView} />}
+      {view === 'parcelMap' && <ParcelMap setView={setView} />}
     </div>
   );
 };
