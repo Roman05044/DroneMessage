@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './RegistrationBox.css';
 
-const RegistrationBox = ({ setView }) => {
+const RegistrationBox = () => {
   return (
     <div className="registration-box">
       <h2>DroneMessage</h2>
@@ -11,7 +12,7 @@ const RegistrationBox = ({ setView }) => {
       <input type="password" placeholder="Повторіть пароль" className="input-field" />
       <button className="register-button">Створити</button>
       <div className="links">
-        <a href="#" onClick={() => setView('login')}>Вже є обліковий запис?</a>
+        <Link to="/">Вже є обліковий запис?</Link>
       </div>
     </div>
   );

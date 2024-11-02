@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './FoodDelivery.css';
 import burgerImage from '../img/burger.png';
 import pizzaImage from '../img/pizza.png';
@@ -7,11 +8,12 @@ import steakImage from '../img/steak.png';
 import cartIcon from '../img/cart.png';
 import ukrBurgersBanner from '../img/ukrBurgersBanner.png';
 
-const FoodDelivery = ({ setView }) => {
+const FoodDelivery = () => {
+  const navigate = useNavigate();
   const [isCartOpen, setCartOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [cart, setCart] = useState({});
-  
+
   const menuItems = [
     { id: 1, name: 'Burger', image: burgerImage },
     { id: 2, name: 'Pizza', image: pizzaImage },
@@ -63,7 +65,7 @@ const FoodDelivery = ({ setView }) => {
   return (
     <div className="food-delivery-container">
       <div className="header">
-        <button onClick={() => setView('dashboard')} className="home-button">🏠</button>
+        <button onClick={() => navigate('/dashboard')} className="home-button">🏠</button>
         <input
           type="text"
           placeholder="Пошук"
@@ -92,7 +94,6 @@ const FoodDelivery = ({ setView }) => {
         </div>
       </div>
 
-      {/* Віджет-меню для корзини */}
       <div className={`cart-widget ${isCartOpen ? 'open' : 'closed'}`}>
         <h3>Кошик</h3>
         <div className="cart-items">

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LoginBox from './component/LoginBox';
 import RegistrationBox from './component/RegistrationBox';
 import PasswordRecoveryBox from './component/PasswordRecoveryBox';
@@ -8,8 +9,6 @@ import ParcelMap from './component/ParcelMap';
 import background from './img/back.png';
 
 const App = () => {
-  const [view, setView] = useState('login'); 
-
   const containerStyle = {
     backgroundImage: `url(${background})`,
     display: 'flex',
@@ -22,14 +21,18 @@ const App = () => {
   };
 
   return (
-    <div style={containerStyle}>
-      {view === 'login' && <LoginBox setView={setView} />}
-      {view === 'register' && <RegistrationBox setView={setView} />}
-      {view === 'recovery' && <PasswordRecoveryBox setView={setView} />}
-      {view === 'dashboard' && <Dashboard setView={setView} />}
-      {view === 'foodDelivery' && <FoodDelivery setView={setView} />}
-      {view === 'parcelMap' && <ParcelMap setView={setView} />}
-    </div>
+    <Router>
+      <div style={containerStyle}>
+        <Routes>
+          <Route path="/" element={<LoginBox />} />
+          <Route path="/register" element={<RegistrationBox />} />
+          <Route path="/recovery" element={<PasswordRecoveryBox />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/foodDelivery" element={<FoodDelivery />} />
+          <Route path="/parcelMap" element={<ParcelMap />} />
+        </Routes>
+      </div>
+    </Router>
   );
 };
 
