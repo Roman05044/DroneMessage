@@ -2,14 +2,13 @@
   "name": "dronemessage",
   "version": "1.0.0",
   "main": "index.js",
- "scripts": {
-  "start:db": "cd \"C:\\Program Files\\MongoDB\\Server\\8.0\\bin\" && mongod --dbpath=\"C:\\data\\db\"",
-  "start": "node server.js",
-  "start:webpack": "webpack serve --mode development",
-  "dev": "concurrently \"npm run start:db\" \"npm run start\" \"npm run start:webpack\""
-},
-
-
+  "scripts": {
+    "start:db": "cd \"C:\\Program Files\\MongoDB\\Server\\8.0\\bin\" && mongod --dbpath=\"C:\\data\\db\"",
+    "start": "node server.js",
+    "start:webpack": "webpack serve --mode development",
+    "dev": "concurrently \"npm run start:db\" \"npm run start\" \"npm run start:webpack\"",
+    "test": "react-scripts test"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -25,13 +24,16 @@
     "mongoose": "^8.8.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.27.0"
+    "react-router-dom": "^6.27.0",
+    "react-scripts": "^5.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.25.8",
     "@babel/preset-env": "^7.25.8",
     "@babel/preset-react": "^7.25.7",
     "@eslint/js": "^9.13.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.0.1",
     "babel-loader": "^9.2.1",
     "concurrently": "^9.0.1",
     "css-loader": "^7.1.2",
@@ -41,6 +43,7 @@
     "file-loader": "^6.2.0",
     "globals": "^15.11.0",
     "html-webpack-plugin": "^5.6.2",
+    "jest": "^29.7.0",
     "prettier": "3.3.3",
     "style-loader": "^4.0.0",
     "url-loader": "^4.1.1",
