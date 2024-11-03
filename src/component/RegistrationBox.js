@@ -38,7 +38,7 @@ const RegistrationBox = () => {
 
   return (
     <div className="registration-box">
-      <h2>DroneMessage</h2>
+      <h2>Реєстрація</h2>
       <input
         type="text"
         placeholder="Логін"

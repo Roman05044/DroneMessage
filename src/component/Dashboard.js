@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Dashboard.css';
 import ukrPoshtaLogo from '../img/ukrPoshta.png';
@@ -10,7 +10,55 @@ const Dashboard = () => {
   const [isWidgetOpen, setWidgetOpen] = useState(false);
   const [showHistory, setShowHistory] = useState(true);
   const [showRecommendations, setShowRecommendations] = useState(true);
+  const [username, setUsername] = useState('Гість');
+  const [profilePic, setProfilePic] = useState(null);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // Симуляція завантаження даних користувача
+    const storedUser = localStorage.getItem('username');
+    const storedPic = localStorage.getItem('profilePic');
+    if (storedUser) {
+      setUsername(storedUser);
+    }
+    if (storedPic) {
+      setProfilePic(storedPic);
+    }
+  }, []);
+
+  const handleUsernameChange = (e) => {
+    const newUsername = e.target.innerText;
+    setUsername(newUsername);
+    localStorage.setItem('username', newUsername);
+    // Запит для збереження на сервері
+    fetch('/update-username', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ username: newUsername })
+    });
+  };
+
+  const handleImageUpload = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        setProfilePic(reader.result);
+        localStorage.setItem('profilePic', reader.result);
+        // Запит для збереження фото на сервері
+        fetch('/update-profile-pic', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ image: reader.result })
+        });
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   const toggleWidget = () => {
     setWidgetOpen(!isWidgetOpen);
@@ -32,14 +80,14 @@ const Dashboard = () => {
 
         <button 
           className="image-button-food" 
-          onClick={() => navigate('/foodDelivery')} 
+          onClick={() => navigate('/foodDelivery')}
         >
           <span className="button-text">Доставка їжі</span>
           <div className="image-container">
             <img src={glovoLogo} alt="Глово" />
             <img src={mcdonaldsLogo} alt="McDonald's" />
           </div>
-        </button>     
+        </button>
         
         <div className="ad-banner">
           <p>Тут може бути ваша реклама</p>
@@ -54,17 +102,31 @@ const Dashboard = () => {
           {isWidgetOpen ? '⬅' : '➡'}
         </button>
         <div className="profile-section">
-          <div className="profile-pic" title="Натисніть, щоб завантажити фото"></div>
-          <h4>Логін</h4>
+          <div 
+            className="profile-pic" 
+            title="Натисніть, щоб завантажити фото"
+            onClick={() => document.getElementById('fileInput').click()}
+          >
+            {profilePic ? (
+              <img src={profilePic} alt="Профіль" />
+            ) : (
+              <div>Фото</div>
+            )}
+          </div>
+          <input
+            type="file"
+            id="fileInput"
+            style={{ display: 'none' }}
+            onChange={handleImageUpload}
+          />
+          <h4
+            contentEditable={true}
+            onBlur={handleUsernameChange}
+          >
+            {username}
+          </h4>
           <label className="option">
             <input type="checkbox" /> Зберігати дані
-          </label>
-          <label className="option">
-            <input
-              type="checkbox"
-              checked={showRecommendations}
-              onChange={(e) => setShowRecommendations(e.target.checked)}
-            /> Показувати рекомендації
           </label>
           <label className="option">
             <input
