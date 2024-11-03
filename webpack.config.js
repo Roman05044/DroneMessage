@@ -1,5 +1,5 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin'); // Додайте плагін
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: './src/index.js',
@@ -36,13 +36,13 @@ module.exports = {
         extensions: ['.js', '.jsx'],
     },
     devServer: {
-        static: path.resolve(__dirname, 'public'),  // Вказуємо папку, де знаходиться HTML
-        port: 8082,
-        historyApiFallback: true,  // Цей параметр дозволяє працювати з одиничними сторінками
+        static: path.resolve(__dirname, 'public'),  
+        port: 8081,
+        historyApiFallback: true,  
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: './public/index.html',  // Шлях до вашого index.html
+            template: './public/index.html',  
         }),
     ],
     mode: 'development',
